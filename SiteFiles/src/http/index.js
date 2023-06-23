@@ -2,7 +2,7 @@ import axios from "axios";
 import accessToken from "../mobx/accessToken";
 import screens from "../mobx/screens";
 
-const API_URL = 'http://localhost:9990/api'
+const API_URL = 'http://94.154.11.177:9990/api'
 
 const $api = axios.create({
     withCredentials:true,
