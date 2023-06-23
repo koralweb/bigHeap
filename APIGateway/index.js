@@ -16,7 +16,11 @@ app.use(cookieParser());
 app.use(cors({
   origin:[
       'http://localhost:8080/',
+      'http://localhost:7777/',
+      'http://94.154.11.177:7777/',
       'http://localhost:8080',
+      'http://localhost:7777',
+      'http://94.154.11.177:7777',
   ],
   credentials: true,
 }));
