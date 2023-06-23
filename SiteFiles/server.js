@@ -1,24 +1,16 @@
-const http = require('http')
-const fs = require('fs')
-const path = require("path");
+const express = require('express')
+const path = require('path')
 
-const server = http.createServer((req, res) => {
-    if(req.method === 'GET') {
-        res.writeHead(200, {
-            'Content-Type': 'text/html; charset=utf-8'
-        })
+const app = express()
 
-        fs.readFile(
-            path.join(__dirname, 'dist', 'index.html'),
-            'utf-8',
-            (err, content) => {
-                if(err) throw err
-                res.end(content)
-            }
-        )
-    }
+
+app.use(express.static('dist'))
+app.use(express.json())
+app.get('/', (req, res) => {
+    res.status(200)
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
 
-server.listen(7777, () => {
+app.listen(7777, () => {
     console.log('Server start on port 7777 ...')
 })
